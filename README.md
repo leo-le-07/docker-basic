@@ -1,3 +1,38 @@
+# Table of Contents
+
+- [Introduction](#introduction)
+- [Images and Containers](#images-and-containers)
+  - [Basic Relationship Between Image and Container](#basic-relationship-between-image-and-container)
+  - [Understanding Docker Image Layers](#understanding-docker-image-layers)
+  - [EXPOSE - Declaration for Developers or Tools](#expose---declaration-for-developers-or-tools)
+  - [Use case: `RUN node app.js` is Incorrect in Dockerfile when Building Image](#use-case-run-node-appjs-is-incorrect-in-dockerfile-when-building-image)
+- [Containers](#containers)
+  - [Key Fundamentals](#key-fundamentals)
+  - [Interactive Mode](#interactive-mode)
+- [CMD and ENTRYPOINT in Dockerfile](#cmd-and-entrypoint-in-dockerfile)
+- [`docker exec` command](#docker-exec-command)
+  - [Common Use Cases for `docker exec`](#common-use-cases-for-docker-exec)
+- [Managing Data & Working with Volumes](#managing-data--working-with-volumes)
+  - [Data Types](#data-types)
+  - [Volumes](#volumes)
+  - [Bind Mount](#bind-mount)
+  - [Comparing Volumes and Bind Mounts](#comparing-volumes-and-bind-mounts)
+- [`.dockerignore`](#dockerignore)
+  - [Use Case: Don't `COPY` everything](#use-case-dont-copy-everything)
+- [Environment Variables with `ENV` and `--env`](#environment-variables-with-env-and---env)
+  - [Setting `ENV` in Dockerfile](#setting-env-in-dockerfile)
+  - [Setting with `--env` in `docker run`](#setting-with---env-in-docker-run)
+  - [Using `.env` Files for Easier Management](#using-env-files-for-easier-management)
+- [Using Build Arguments `ARG`](#using-build-arguments-arg)
+  - [`ARG` in Dockerfile](#arg-in-dockerfile)
+  - [Comparing `ARG` and `ENV` in Docker](#comparing-arg-and-env-in-docker)
+- [Networking: (Cross-)Container Communication](#networking-cross-container-communication)
+  - [Types of Docker Networks](#types-of-docker-networks)
+  - [How Containers Communicate](#how-containers-communicate)
+  - [Steps to Enable Communication Between 2 Containers](#steps-to-enable-communication-between-2-containers)
+  - [Docker Compose for Multi-Container Communication](#docker-compose-for-multi-container-communication)
+
+
 # Introduction
 
 This repository contains my notes and understanding of Docker, Docker Compose, and containerized development. It is a personal reference to help me apply Docker concepts in daily work and future projects. The content covers fundamental topics like images, containers, networking, and data management, organized for easy access and updates.
