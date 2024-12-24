@@ -540,20 +540,6 @@ For production:
 | Backup and Restore | Easier to backup and restore using Docker commands         | Requires manual backup and restore of host directories         |
 | Example            | `-v my_volume:/app/data`                                   | `-v $(pwd)/src:/app/src`                                       |
 
-**Problem**: `COPY . .` in Dockerfile copies everything from the host to the container, including unnecessary files like `node_modules`, `.git`, and build artifacts.
-- Include unnecessary files: for example `.git`, temporary files, `.env`
-- Increase image size
-- Expose sensitive data: file like `.env` or SSH keys might be unintentionally included, leading to security vulnerabilities
-- Break build caching: any change in build context (even a small, irrelevant file) invalidates entire build cache, forcing Docker to rebuild image from scratch
-
-**Solution**: Use `.dockerignore` file to exclude unnecessary files and directories from the build context
-```
-node_modules
-.git
-*.log
-.env
-```
-
 ## `.dockerignore`
 By using a .dockerignore file, you can exclude unnecessary files and directories from this build context. This has several benefits:
 
